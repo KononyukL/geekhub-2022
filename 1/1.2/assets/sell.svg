@@ -1,0 +1,19 @@
+<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g opacity="0.2">
+<circle cx="50" cy="50" r="50" fill="#6DED02"/>
+<circle cx="50" cy="50" r="50" stroke="#88BDDA"/>
+</g>
+<g clip-path="url(#clip0_1_1473)">
+<path d="M45 63C54.9411 63 63 54.9411 63 45C63 35.0589 54.9411 27 45 27C35.0589 27 27 35.0589 27 45C27 54.9411 35.0589 63 45 63Z" stroke="black" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M57.8 57.7998L73 72.9998" stroke="black" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M42 47.2002V50.6002L34 54.0002" stroke="black" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M48 47.2002V50.6002L56 54.0002" stroke="black" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M51.4 40.4004C51.4 44.6004 48.6 48.0004 45 48.0004C41.4 48.0004 38.6 44.6004 38.6 40.4004C38.6 36.2004 41.4 32.8004 45 32.8004C48.6 32.6004 51.4 36.0004 51.4 40.4004Z" stroke="black" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M51.4 39.4C51.2 39.4 51 39.4 50.6 39.4C48.6 39.8 47.2 39 46 37C45.4 38.4 43.2 39.4 41.4 39.4C40.6 39.4 39.4 39.2 38.8 38.8" stroke="black" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<clipPath id="clip0_1_1473">
+<rect width="48" height="48" fill="white" transform="translate(26 26)"/>
+</clipPath>
+</defs>
+</svg>
