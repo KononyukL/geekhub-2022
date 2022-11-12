@@ -5,8 +5,8 @@ function multiple() {
   let res; //6
   for (let i = 0; i < arguments.length; i++) {
     if (!res && isNumber(arguments[i])) {
-      res = arguments[i]
-      continue
+      res = arguments[i];
+      continue;
     }
     if (isNumber(arguments[i])) {
       res *= arguments[i];
@@ -39,31 +39,51 @@ const guessNumber = (num) => {
 };
 
 // 4
+const getMin = (arr) => {
+  let result = arr[0];
+  for (let item of arr) {
+    if (result > item) {
+      result = item;
+    }
+  }
+  return result;
+};
+
+const getMax = (arr) => {
+  let result = arr[0];
+  for (let item of arr) {
+    if (result < item) {
+      result = item;
+    }
+  }
+  return result;
+};
+
+const geSum = (arr) => {
+  let result = 0;
+  for (let item of arr) {
+    result += item;
+  }
+  return result;
+};
+
 const getMinMaxSum = (arr) => {
-  let self;
+  const newArr = [];
 
   for (const item of arr) {
     if (isNumber(item)) {
-      if (self) {
-        if (self.min > item) {
-          self.min = item;
-        }
-        if (self.max < item) {
-          self.max = item;
-        }
-        self.sum += item;
-      } else {
-        self = {
-          min: item,
-          max: item,
-          sum: item,
-        };
-      }
+      newArr.push(item);
     }
+ 
   }
-
-  return self;
+  return {
+    min: getMin(newArr),
+    max: getMax(newArr),
+    sum: geSum(newArr),
+  };
 };
+
+
 
 // 5
 const getWater = (arr) => {
