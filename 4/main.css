@@ -8,7 +8,6 @@ body {
   background-color: #f1f1f1;
 }
 
-
 .create {
   display: flex;
   justify-content: center;
@@ -41,12 +40,12 @@ button {
   border-radius: 2px;
   cursor: pointer;
   color: #ffffff;
-
 }
-
+button.active {
+  border: 1px solid red;
+}
 button:hover {
   background-color: lightgreen;
-
 }
 
 #list {
@@ -55,7 +54,6 @@ button:hover {
   padding: 0;
   list-style-type: none;
 }
-
 
 li {
   margin: 0 auto;
@@ -66,6 +64,7 @@ li {
   column-gap: 20px;
   padding: 16px;
   background-color: #f9f9f9f9;
+  cursor: grab;
 }
 
 li:nth-child(2n) {
@@ -87,15 +86,15 @@ li:nth-child(2n) {
   opacity: 1;
 }
 
-.button-delete:before, .button-delete:after {
+.button-delete:before,
+.button-delete:after {
   position: absolute;
   left: 15px;
-  content: ' ';
+  content: " ";
   height: 14px;
   width: 2px;
-  background-color: #FF0000FF;
+  background-color: #ff0000ff;
   cursor: pointer;
-
 }
 
 .button-delete:before {
@@ -125,4 +124,9 @@ li:nth-child(2n) {
 .task {
   font-size: 16px;
   font-weight: 500;
+  cursor: pointer;
+}
+
+.done-checkbox {
+  cursor: pointer;
 }

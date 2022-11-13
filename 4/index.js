@@ -1,9 +1,10 @@
 const input = document.querySelector("#input");
+const form = document.querySelector(".js-create");
 const list = document.querySelector("#list");
-const buttonAscText = document.querySelector(".asc-text");
-const buttonDescText = document.querySelector(".desc-text");
-const buttonAscDate = document.querySelector(".asc-date");
-const buttonDescDate = document.querySelector(".desc-date");
+const buttonAscText = document.querySelector(".js-ascending-text");
+const buttonDescText = document.querySelector(".js-descending-text");
+const buttonAscDate = document.querySelector(".js-ascending--date");
+const buttonDescDate = document.querySelector(".js-descending-date");
 
 const addDragFunctions = (list) => {
   for (const elem of list) {
@@ -18,10 +19,24 @@ const addDragFunctions = (list) => {
     };
 
     elem.ondrop = (event) => {
-      let toEl = elem.innerHTML;
-      let fromEl = document.querySelector(
+      const toText = elem.querySelector(".task");
+      const toCheckbox = elem.querySelector(".done-checkbox");
+
+      if (toText.classList.contains("cross-out")) {
+        toCheckbox.setAttribute("checked", true);
+      }
+
+      const toEl = elem.innerHTML;
+      const fromEl = document.querySelector(
         `#${event.dataTransfer.getData("id")}`
       );
+
+      const fromText = fromEl.querySelector(".task");
+      const fromCheckbox = fromEl.querySelector(".done-checkbox");
+
+      if (fromText.classList.contains("cross-out")) {
+        fromCheckbox.setAttribute("checked", true);
+      }
 
       elem.innerHTML = fromEl.innerHTML;
       fromEl.innerHTML = toEl;
@@ -29,8 +44,11 @@ const addDragFunctions = (list) => {
   }
 };
 
-input.addEventListener("keypress", function (event) {
-  if (event.key == "Enter") {
+form.addEventListener("submit", function (event) {
+  event.preventDefault();
+  const formData = new FormData(event.target);
+  const value = Object.fromEntries(formData)["todo"];
+  if (value) {
     const li = document.createElement("li");
     const checkboxInput = document.createElement("input");
     const paragraph = document.createElement("p");
@@ -45,18 +63,19 @@ input.addEventListener("keypress", function (event) {
     checkboxInput.classList.add("done-checkbox");
     buttonDelete.classList.add("button-delete");
     dateTime.classList.add("date-time");
-    paragraph.textContent = this.value;
+    paragraph.textContent = value;
     dateTime.textContent = "Date: " + date.toLocaleString();
 
     li.appendChild(dateTime);
     li.appendChild(checkboxInput);
     li.appendChild(paragraph);
     li.appendChild(buttonDelete);
-    this.value = "";
 
     const lists = document.getElementsByTagName("li");
 
     addDragFunctions(lists);
+
+    this.reset();
   }
 });
 
@@ -81,8 +100,10 @@ list.addEventListener("change", (e) => {
 });
 
 list.addEventListener("dblclick", (e) => {
+  const parent = e.target.parentElement;
+
   if (e.target && e.target.classList.value === "task") {
-    const task = e.target.parentElement.querySelector(".task");
+    const task = parent.querySelector(".task");
 
     const text = task.textContent;
     task.textContent = "";
@@ -94,7 +115,10 @@ list.addEventListener("dblclick", (e) => {
     task.appendChild(edit);
 
     edit.addEventListener("keypress", function (event) {
-      if (event.key == "Enter") {
+      if (event.key === "Enter") {
+        if (!this.value) {
+          parent.parentNode.removeChild(parent);
+        }
         task.textContent = this.value;
       }
     });
@@ -118,18 +142,28 @@ const onFilter = (selector, sortType) => {
     });
 };
 
+const addActiveFilterBtn = (selector) => {
+  const allButton = document.querySelectorAll("button");
+  allButton.forEach((el) => el.classList.remove("active"));
+  selector.classList.add("active");
+};
+
 buttonAscText.addEventListener("click", () => {
+  addActiveFilterBtn(buttonAscText);
   onFilter(".task", "asc");
 });
 
 buttonDescText.addEventListener("click", () => {
+  addActiveFilterBtn(buttonDescText);
   onFilter(".task", "desc");
 });
 
 buttonAscDate.addEventListener("click", () => {
+  addActiveFilterBtn(buttonAscDate);
   onFilter(".date-time", "asc");
 });
 
 buttonDescDate.addEventListener("click", function () {
+  addActiveFilterBtn(buttonDescDate);
   onFilter(".date-time", "desc");
 });
