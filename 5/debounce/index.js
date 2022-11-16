@@ -1,6 +1,5 @@
-const input = document.querySelector(".input");
-const button = document.querySelector(".button");
-const ul = document.querySelector(".city");
+const input = document.querySelector(".js-input");
+const ul = document.querySelector(".js-list-city");
 
 const debounce = (func, delay = 1000) => {
   let timeoutId;
@@ -24,8 +23,5 @@ const doSomething = () => {
 
 const debounced = debounce(doSomething);
 
-button.addEventListener("click", () => {
-  input.classList.remove("removeInput");
-});
 
 input.addEventListener("input", debounced);

@@ -24,16 +24,13 @@ body {
   padding-top: 20px;
 }
 
-.button {
-  padding: 3px;
-}
 
-.input {
+.js-input {
   height: 25px;
   padding: 5px;
 }
 
-.city {
+.js-list-city {
   display: none;
 }
 
@@ -41,6 +38,3 @@ body {
   display: block;
 }
 
-.removeInput {
-  display: none;
-}
