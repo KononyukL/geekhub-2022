@@ -1,0 +1,57 @@
+body {
+  background: wheat;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.button {
+  background: coral;
+  color: white;
+  font-weight: 600;
+  min-width: 200px;
+  min-height: 42px;
+  border-radius: 4px;
+  border: 2px solid white;
+  outline: none;
+}
+
+.container,
+.died {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: black;
+  font-size: 22px;
+  font-weight: 700;
+  width: 100%;
+  max-width: 1200px;
+  padding: 20px 10px;
+}
+
+.died {
+  justify-content: center;
+}
+
+.died:empty {
+  padding: 0;
+}
+
+.button:disabled {
+  background: gray;
+}
+
+.hide {
+  display: none;
+}
+.button-game-js {
+  display: none;
+}
+.get-button {
+  display: block;
+}
