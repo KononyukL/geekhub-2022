@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <div class="container">
+      <form id="form" class="show" action="/target/">
+        <h1>Registration</h1>
+        <div class="input-control">
+          <label for="first-name">First name</label>
+          <input id="first-name" type="text" name="firstName" />
+          <div class="error"></div>
+        </div>
+        <div class="input-control">
+          <label for="last-name">Last name</label>
+          <input id="last-name" type="text" name="lastName" />
+          <div class="error"></div>
+        </div>
+        <div class="input-control">
+          <label for="phone-number">Phone number</label>
+          <input id="phone-number" type="text" name="phone" />
+          <div class="error"></div>
+        </div>
+        <div class="input-control">
+          <label for="email">Email</label>
+          <input id="email" type="text" name="email" />
+          <div class="error"></div>
+        </div>
+        <div class="input-control">
+          <label for="password">Password</label>
+          <input id="password" type="password" name="password" />
+          <div class="error"></div>
+        </div>
+        <div class="input-control">
+          <label for="confirm-password">Confirm password</label>
+          <input id="confirm-password" type="password" name="confirmPassword" />
+          <div class="error"></div>
+        </div>
+        <button type="submit">Sing up</button>
+      </form>
+
+      <div class="message">Registration is success!</div>
+    </div>
+
+    <script src="index.js"></script>
+  </body>
+</html>
