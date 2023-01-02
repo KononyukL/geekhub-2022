@@ -25,13 +25,13 @@ const Palette  = () => {
   const getDominantColor = () => {
    const {red, green, blue} = rgbColor
 
-    if (red > green + blue) {
+    if (red > (green + blue)/2) {
       return  'Red'
     }
-    if (green > red + blue) {
+    if (green > (red + blue)/2) {
       return  'Green'
     }
-    if (blue > red + green) {
+    if (blue >(red + green)/2) {
       return 'Blue'
     }
 
