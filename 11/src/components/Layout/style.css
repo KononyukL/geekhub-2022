@@ -1,0 +1,35 @@
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.nav {
+  flex: 0 0 250px;
+  background-color: lightskyblue;
+}
+
+.container {
+  flex: 1;
+  padding: 16px;
+}
+
+.link {
+  display: flex;
+  justify-content: center;
+  background-color: cornflowerblue;
+  padding: 16px 0;
+  color: white;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.link.active, .link:hover {
+  background: dodgerblue;
+}
+
+.logo {
+  padding: 16px;
+  text-align: center;
+  font-weight: 800;
+  color: white;
+}

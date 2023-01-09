@@ -1,0 +1,7 @@
+.todo-link {
+  color: black;
+}
+
+.todo-link:hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,11 @@
+.search {
+  display: flex;
+  align-items: end;
+  column-gap: 8px;
+  padding: 16px 0;
+}
+
+.search-button {
+  min-width: 150px;
+  cursor: pointer;
+}
