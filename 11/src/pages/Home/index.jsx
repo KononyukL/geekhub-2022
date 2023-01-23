@@ -53,18 +53,9 @@ const Home = () => {
   };
 
   const filterTodos = (todo) => {
-    let completedFilter;
-    if (todosCompletedQuery) {
-      if (todosCompletedQuery === 'completed') {
-        completedFilter = true;
-      } else {
-        completedFilter = false;
-      }
-    }
-
     return (
       todo.title.includes(todosQuery) &&
-      (completedFilter === undefined || completedFilter === todo.completed)
+      (!todosCompletedQuery || (todosCompletedQuery === 'completed') === todo.completed)
     );
   };
 

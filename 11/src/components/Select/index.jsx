@@ -2,7 +2,7 @@ import React from 'react';
 
 const Select = ({ value, onChange, options, label, ...rest }) => {
   const handleChange = (e) => {
-    onChange(e.target.value);
+    onChange?.(e.target.value);
   };
   return (
     <label>
