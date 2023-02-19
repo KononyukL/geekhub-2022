@@ -1,32 +1,33 @@
-import {User} from "../common/type-and-interfaces";
+import { IUser } from '../common/type-and-interfaces';
 
 export class UserService {
-   private db: User[] = [];
-   private idCounter: number = 1;
-    async addUser(login: string, password: string, isAdmin: boolean = false): Promise<User> {
-       const user: User = {
-           id: this.idCounter,
-           login,
-           password,
-           isAdmin
-       }
+  private db: IUser[] = [];
+  private idCounter: number = 1;
+  async addUser(login: string, password: string, isAdmin: boolean = false): Promise<IUser> {
+    const user: IUser = {
+      id: this.idCounter,
+      login,
+      password,
+      isAdmin
+    };
 
-       this.db.push(user);
+    const existUser = this.db.find((user) => user.login === login);
 
-        this.idCounter++;
+    if (!existUser) {
+      this.db.push(user);
+      this.idCounter++;
 
-        console.log(`Our database = ${JSON.stringify(this.db)}`);
-
-        return user
+      return user;
     }
 
-    async getUser(login: string, password: string): Promise<User | string> {
-        const user = this.db.find((user) => user.login === login && user.password === password)
+    return existUser;
+  }
 
-        console.log(`Our database = ${JSON.stringify(this.db)}`);
+  async getUser(login: string, password: string): Promise<IUser | string> {
+    const user = this.db.find((user) => user.login === login && user.password === password);
 
-        return user || 'Not user'
-    }
+    return user || 'User not found';
+  }
 }
 
-export const userService = new UserService()
+export const userService = new UserService();
