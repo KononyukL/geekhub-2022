@@ -1,5 +1,5 @@
 import express, { Request, Response, NextFunction } from 'express';
-import {postService, userService} from '../services';
+import { postService, userService } from '../services';
 
 export class UserController {
   router = express.Router();
@@ -32,7 +32,7 @@ export class UserController {
   addPost = async (req: Request, res: Response, next: NextFunction) => {
     try {
       const { topic, text } = req.body;
-      const userId = req.params.userId as string || '';
+      const userId = (req.params.userId as string) || '';
       const post = await postService.addPost({ userId, topic, text });
 
       res.send(post);
@@ -42,7 +42,7 @@ export class UserController {
   };
   getPosts = async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const userId = req.params.userId as string || '';
+      const userId = (req.params.userId as string) || '';
       const skip = parseInt(req.query.skip as string) || 0;
       const take = parseInt(req.query.take as string) || 10;
       const posts = await postService.getPost({ userId, skip, take });

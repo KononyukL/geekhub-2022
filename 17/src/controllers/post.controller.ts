@@ -10,7 +10,7 @@ export class PostController {
 
   changePost = async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const id = req.params.id as string || '';
+      const id = (req.params.id as string) || '';
       const { topic, text } = req.body;
       const post = await postService.changePost({ id, topic, text });
 
@@ -21,7 +21,7 @@ export class PostController {
   };
   deletePost = async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const id = req.params.id as string || '';
+      const id = (req.params.id as string) || '';
       await postService.deletePost(id);
 
       res.end();

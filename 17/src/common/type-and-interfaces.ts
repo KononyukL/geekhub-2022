@@ -1,6 +1,6 @@
 import { HttpError } from './error';
 import { NextFunction, Request, Response } from 'express';
-import {Post} from "../model/post.model";
+import { Post } from '../model/post.model';
 
 export interface IPostData {
   userId: string;
